@@ -61,6 +61,11 @@ public class Cliente {
         this.telefono = telefono;
         this.domicilio = domicilio;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + ", mail=" + mail + ", telefono=" + telefono + ", domicilio=" + domicilio + '}';
+    }
     
     
 }

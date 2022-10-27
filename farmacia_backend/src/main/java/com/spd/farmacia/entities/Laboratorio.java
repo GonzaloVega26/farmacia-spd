@@ -4,6 +4,7 @@
  */
 package com.spd.farmacia.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  *
@@ -28,5 +31,7 @@ public class Laboratorio {
     private String nombre;
     
     @OneToMany(mappedBy = "laboratorio")
+    @JsonBackReference
+    @Cascade(CascadeType.DELETE)
     private List<Medicamento> medicamentos;
 }

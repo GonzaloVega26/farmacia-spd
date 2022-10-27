@@ -32,4 +32,8 @@ public class DomicilioImp {
     public void saveDomicilio(Domicilio domicilio){
         iDomicilioRepository.save(domicilio);
     }
+    
+    public void deleteDomicilio(int idDomicilio){
+        iDomicilioRepository.deleteById(idDomicilio);
+    }
 }

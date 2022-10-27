@@ -31,6 +31,10 @@ public class ClienteImp {
     }
     
     public void saveCliente(Cliente cliente){
-        iClienteRepository.save(cliente);
+       iClienteRepository.save(cliente);
+    }
+    
+    public void deleteCliente(int idCliente){
+        iClienteRepository.deleteById(idCliente);
     }
 }

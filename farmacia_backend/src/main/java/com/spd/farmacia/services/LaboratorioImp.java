@@ -29,4 +29,12 @@ public class LaboratorioImp {
         List<Laboratorio> lista = iLaboratorioRepository.findAll();
         return lista;
     }
+    
+     public void saveLaboratorio(Laboratorio laboratorio){
+        iLaboratorioRepository.save(laboratorio);
+    }
+    
+    public void deleteLaboratorio(int idLaboratorio){
+        iLaboratorioRepository.deleteById(idLaboratorio);
+    }
 }

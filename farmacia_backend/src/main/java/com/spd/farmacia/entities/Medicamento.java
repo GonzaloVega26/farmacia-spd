@@ -4,6 +4,7 @@
  */
 package com.spd.farmacia.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -45,6 +46,7 @@ public class Medicamento {
     private double precioUnitario;
     @ManyToOne
     @JoinColumn(name = "idLaboratorio")
+    @JsonManagedReference
     private Laboratorio laboratorio;
     
    
