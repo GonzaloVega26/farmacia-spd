@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.spd.farmacia.repositories.IMedicamentoRepository;
+import java.util.Optional;
 import javax.transaction.Transactional;
 
 /**
@@ -18,15 +19,28 @@ import javax.transaction.Transactional;
 @Service
 @Transactional
 public class MedicamentoImp {
-    @Autowired IMedicamentoRepository  medicamentoRepository;
+    @Autowired IMedicamentoRepository  iMedicamentoRepository;
    
     public Medicamento findMedicamento(int id) {
-        Medicamento medicamento = medicamentoRepository.findById(id).orElse(null);
+        Medicamento medicamento = iMedicamentoRepository.findById(id).orElse(null);
         return medicamento;
     }
     
     public List<Medicamento> findAllMedicamentos() {
-        List<Medicamento> lista = medicamentoRepository.findAll();
+        List<Medicamento> lista = iMedicamentoRepository.findAll();
         return lista;
+    }
+    
+    
+     public void saveMedicamento(Medicamento medicamento){
+        iMedicamentoRepository.save(medicamento);
+    }
+    
+    public void deleteMedicamento(int idMedicamento){
+        iMedicamentoRepository.deleteById(idMedicamento);
+    }
+       
+    public List<Medicamento> getMedicamentoByNombre(String nombre){
+        return iMedicamentoRepository.findByNombreContaining(nombre);
     }
 }

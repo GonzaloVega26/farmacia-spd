@@ -4,20 +4,16 @@
  */
 package com.spd.farmacia.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,31 +24,21 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Medicamento {
-    
+public class FacturaDetalle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotNull
+    private double precioTotal;
     
-    @NotNull
-    private String nombre;
-    @NotNull
-    private int lote;
-    @NotNull
-    @Temporal(TemporalType.DATE)
-    private Date fechaVenc;
-    @NotNull
-    private boolean esRecetado;
-    
-    private int stock;
    
-    private double precioUnitario;
+    @ManyToMany
+    @JoinTable(name = "factdetalle_has_medicamentos",
+           joinColumns = { @JoinColumn(name = "idFactdetalle")  },
+           inverseJoinColumns = { @JoinColumn(name = "idMedicamento") })
+    private List<Medicamento> medicamentos;
+    
     @ManyToOne
-    @JoinColumn(name = "idLaboratorio")
-    @JsonManagedReference
-    private Laboratorio laboratorio;
+    private MetodoPago metodoPago;
 
-    
-    
-   
 }

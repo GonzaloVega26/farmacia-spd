@@ -43,6 +43,7 @@ public class ClienteController {
         Cliente cliente = clienteImp.findCliente(idCliente);
         return new ResponseEntity(cliente, HttpStatus.OK);
     }
+    
 
     @GetMapping("/get-all")
     public ResponseEntity<Cliente> getAllCliente() {
