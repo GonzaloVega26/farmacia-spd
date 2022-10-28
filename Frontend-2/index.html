@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Equipo RR">
+	<meta name="description" content="FarmaDB Interface">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FarmaDB</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/farmadb-theme.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body>
+	<section class="login">
+		<div class="login-logotype">
+			<p>FarmaDB</p>
+		</div>
+		<div class="login-container">
+			<form>
+				<div class="form-floating mb-3">
+					<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+					<label for="floatingInput">Usuario</label>
+				  </div>
+				  <div class="form-floating mb-3">
+					<input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+					<label for="floatingPassword">Contraseña</label>
+				  </div>
+				<div style="text-align: center;">
+					<button role="link" onclick="window.location='system.html'" class="btn btn-primary" href="system.html">Enviar</button>
+					<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+						Olvide mi contraseña :(
+					</button>
+					<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <h1 class="modal-title fs-5" id="exampleModalLabel">¿Olvidaste tu contraseña?</h1>
+							  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							  Como se va a olvidar la contraseña profe pruebe con cualquier cosa :)
+							</div>
+						  </div>
+						</div>
+					  </div>
+						
+				</div>
+			  </form>
+		</div>
+	</section>
+
+	<script src="js/bootstrap.js"></script>
+</body>
+</html>

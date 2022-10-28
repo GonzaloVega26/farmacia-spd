@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Equipo RR">
+	<meta name="description" content="FarmaDB Interface">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FarmaDB</title>
+	
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/farmadb-theme.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body>
+	<header>
+		<div class="header-container">
+			<div class="header-logotype">
+				<a href="index.html">FarmaDB</a>
+			</div>
+			<nav class="header-navigation">
+				<ul>
+					<li><a href="system.html">Sistema</a></li>
+					<li><a href="reports.html">Reportes</a></li>
+					<li><a href="db.html" class="active">Base de Datos</a></li>
+					<li><a href="environment.html">Entorno</a></li>
+				</ul>
+			</nav>
+			<div class="header-user">
+				<p>Buenos dias Carolina!</p>
+				<a href="index.html">Salir</a>
+			</div>
+		</div>
+	</header>
+
+	<div class="header-space"></div>
+
+	<section>
+		<div class="section-container">
+			<h1><i class="bi bi-hdd-stack-fill"></i> Base de Datos</h1>
+			<div class="section-module">
+				<div class="section-content-diagram">
+					<div style="width: 70%;">
+						<h2><i class="bi bi-diagram-3-fill"></i> Diagrama</h2>
+						<img src="assets/diagram.jpg" alt="">
+					</div>
+					<div style="width: 25%;">
+						<h2><i class="bi bi-bounding-box"></i> Consideraciones</h2>
+						<p></p>
+					</div>
+				</div>
+			</div>
+
+			<h1><i class="bi bi-table"></i> Registros</h1>
+			<div class="section-module">
+				<div class="section-title">
+					<h2>Tabla de Empleado</h2>
+					<code>SELECT * FROM empleado;</code>
+				</div>
+				<div class="section-content">
+					<table class="table table-striped table-hover">
+						<thead>
+						  <tr>
+							<th scope="col"><i class="bi bi-key-fill"></i>idEmpleado</th>
+							<th scope="col"><i class="bi bi-fonts"></i>nombre</th>
+							<th scope="col"><i class="bi bi-fonts"></i>apellido</th>
+							<th scope="col"><i class="bi bi-calendar-minus"></i>fechaNac</th>
+							<th scope="col"><i class="bi bi-123"></i>dni</th>
+							<th scope="col"><i class="bi bi-fonts"></i>mail</th>
+							<th scope="col"><i class="bi bi-123"></i>tel</th>
+							<th scope="col"><i class="bi bi-123"></i>salario</th>
+							<th scope="col"><i class="bi bi-fonts"></i>turno</th>
+							<th scope="col"><i class="bi bi-key"></i>idDomicilio</th>
+							<th scope="col"><i class="bi bi-key"></i>idGenero</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<th scope="row">001</th>
+							<td>Ignacio</td>
+							<td>Ramet</td>
+							<td>22/09/2000</td>
+							<td>40246358</td>
+							<td>ignacioramet@gmail.com</td>
+							<td>261 602 6369</td>
+							<td>$ 89,669.00</td>
+							<td>Noche</td>
+							<td>316</td>
+							<td>01</td>
+						  </tr>
+						  <tr>
+							<th scope="row">002</th>
+							<td>Franco</td>
+							<td>Albornoz</td>
+							<td>19/05/2001</td>
+							<td>413687419</td>
+							<td>francoalbornoz@hotmail.com</td>
+							<td>261 247 2655</td>
+							<td>$ 70,368.00</td>
+							<td>Mañana</td>
+							<td>317</td>
+							<td>01</td>
+						  </tr>
+						  <tr>
+							<th scope="row">003</th>
+							<td>Jimena</td>
+							<td>Somlay</td>
+							<td>5/02/1980</td>
+							<td>30364955</td>
+							<td>jimesomlay@gmail.com</td>
+							<td>261 125 3266</td>
+							<td>$ 70,368.00</td>
+							<td>Tarde</td>
+							<td>317</td>
+							<td>02</td>
+						  </tr>
+						  <tr>
+							<th scope="row">004</th>
+							<td>Fernando</td>
+							<td>Ramet</td>
+							<td>22/09/2000</td>
+							<td>40246359</td>
+							<td>ferramet@gmail.com</td>
+							<td>261 649 3147</td>
+							<td>$ 70,368.00</td>
+							<td>Mañana</td>
+							<td>316</td>
+							<td>01</td>
+						  </tr>
+						</tbody>
+					  </table>
+				</div>
+			</div>
+
+			<div class="section-module">
+				<div class="section-title">
+					<h2>Tabla de Empleado Filtrada</h2>
+					<div class="form-floating">
+						<input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+						<label for="floatingPassword">Buscar idDomicilio</label>
+					  </div>
+					<code>SELECT * FROM empleado WHERE idDomicilio='x';</code>
+				</div>
+				<div class="section-content">
+					<table class="table table-striped table-hover">
+						<thead>
+						  <tr>
+							<th scope="col"><i class="bi bi-key-fill"></i> idEmpleado</th>
+							<th scope="col"><i class="bi bi-fonts"></i> nombre</th>
+							<th scope="col"><i class="bi bi-fonts"></i> apellido</th>
+							<th scope="col"><i class="bi bi-calendar-minus"></i> fechaNac</th>
+							<th scope="col"><i class="bi bi-123"></i> dni</th>
+							<th scope="col"><i class="bi bi-fonts"></i> mail</th>
+							<th scope="col"><i class="bi bi-123"></i> tel</th>
+							<th scope="col"><i class="bi bi-123"></i> salario</th>
+							<th scope="col"><i class="bi bi-fonts"></i> turno</th>
+							<th scope="col"><i class="bi bi-key"></i> idDomicilio</th>
+							<th scope="col"><i class="bi bi-key"></i> idGenero</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<th scope="row">001</th>
+							<td>Ignacio</td>
+							<td>Ramet</td>
+							<td>22/09/2000</td>
+							<td>40246358</td>
+							<td>ignacioramet@gmail.com</td>
+							<td>261 602 6369</td>
+							<td>$ 89,669.00</td>
+							<td>Noche</td>
+							<td>316</td>
+							<td>01</td>
+						  </tr>
+						  <tr>
+							<th scope="row">004</th>
+							<td>Fernando</td>
+							<td>Ramet</td>
+							<td>22/09/2000</td>
+							<td>40246359</td>
+							<td>ferramet@gmail.com</td>
+							<td>261 649 3147</td>
+							<td>$ 70,368.00</td>
+							<td>Mañana</td>
+							<td>316</td>
+							<td>01</td>
+						  </tr>
+						</tbody>
+					  </table>
+				</div>
+			</div>
+
+			<hr>
+			
+			<div class="section-module">
+				<div class="section-title">
+					<h2>Tabla de Medicamento</h2>
+					<code>SELECT * FROM medicamento;</code>
+				</div>
+				<div class="section-content">
+					<table class="table table-striped table-hover">
+						<thead>
+						  <tr>
+							<th scope="col"><i class="bi bi-key-fill"></i> idMedicamento</th>
+							<th scope="col"><i class="bi bi-fonts"></i> nombre</th>
+							<th scope="col"><i class="bi bi-123"></i> lote</th>
+							<th scope="col"><i class="bi bi-calendar-minus"></i> fechaVenc</th>
+							<th scope="col"><i class="bi bi-123"></i> esRecetado</th>
+							<th scope="col"><i class="bi bi-123"></i> stock</th>
+							<th scope="col"><i class="bi bi-123"></i> precioUnitario</th>
+							<th scope="col"><i class="bi bi-key"></i> idLaboratorio</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<th scope="row">001</th>
+							<td>Paracetamol 500mg</td>
+							<td>5216</td>
+							<td>27/10/2023</td>
+							<td>NO</td>
+							<td>659</td>
+							<td>$ 309.99</td>
+							<td>023</td>
+						  </tr>
+						  <tr>
+							<th scope="row">002</th>
+							<td>Actron Plus </td>
+							<td>5016</td>
+							<td>07/01/2025</td>
+							<td>NO</td>
+							<td>101</td>
+							<td>$ 399.99</td>
+							<td>023</td>
+						  </tr>
+						</tbody>
+					  </table>
+				</div>
+			</div>
+
+			
+		</div>
+	</section>
+
+
+	<script src="js/bootstrap.js"></script>
+</body>
+</html>
