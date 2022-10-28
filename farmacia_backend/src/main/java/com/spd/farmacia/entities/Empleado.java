@@ -4,16 +4,17 @@
  */
 package com.spd.farmacia.entities;
 
+import com.spd.farmacia.entities.enums.TurnoEnum;
 import com.sun.istack.NotNull;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,10 +28,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Cliente {
-    @Id
+public class Empleado {
+     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
     @NotNull
     private String nombre;
     @NotNull
@@ -45,36 +47,16 @@ public class Cliente {
     private String mail;
     
     private long telefono;
+    private double salario;
+    
+    @Enumerated(EnumType.STRING)
+    private TurnoEnum turno;
     
     @ManyToOne
     @JoinColumn(name = "idDomicilio")
     private Domicilio domicilio;
     
-    
     @ManyToOne
     @JoinColumn(name = "idGenero")
     private Genero genero;
-    
-    @ManyToMany
-    private List<ObraSocial> obrasSociales;
-
-    public Cliente() {
-    }
-
-    public Cliente(String nombre, String apellido, long dni, Date fechaNacimiento, String mail, long telefono, Domicilio domicilio) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.fechaNacimiento = fechaNacimiento;
-        this.mail = mail;
-        this.telefono = telefono;
-        this.domicilio = domicilio;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + ", mail=" + mail + ", telefono=" + telefono + ", domicilio=" + domicilio + '}';
-    }
-    
-    
 }

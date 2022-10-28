@@ -7,6 +7,7 @@ package com.spd.farmacia.dto;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,17 +17,17 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class DtoMedicamento {
-    private String nombre;
-    private int lote;
-    private String fechaVencimiento;
-    private boolean esRecetado;
-    private int stock;
-    private double precioUnitario;
-    private int idLaboratorio;
+public class DtoFacturaDetalle {
+    
+    private double precioTotal;
+    private List<Integer> idsMedicamentos;
+    private Integer idMetodoPago;
+    private Integer idFacturaEncabezado;
+    private String fecha;
     
     public Date fechaDeString(String fecha) throws ParseException{
         Date date= new SimpleDateFormat("dd/MM/yyyy").parse(fecha);  
         return date;
     }
+
 }

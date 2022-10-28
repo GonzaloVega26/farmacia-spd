@@ -37,4 +37,8 @@ public class ClienteImp {
     public void deleteCliente(int idCliente){
         iClienteRepository.deleteById(idCliente);
     }
+    
+    public Cliente findClienteByDni(long dni){
+        return iClienteRepository.findByDni(dni);
+    }
 }

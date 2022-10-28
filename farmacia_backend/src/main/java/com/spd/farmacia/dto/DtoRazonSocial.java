@@ -16,14 +16,12 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class DtoMedicamento {
+public class DtoRazonSocial {
+    
     private String nombre;
-    private int lote;
-    private String fechaVencimiento;
-    private boolean esRecetado;
-    private int stock;
-    private double precioUnitario;
-    private int idLaboratorio;
+    private String cuit;
+    private String fechaIniActividad;
+    private String dataFiscal;
     
     public Date fechaDeString(String fecha) throws ParseException{
         Date date= new SimpleDateFormat("dd/MM/yyyy").parse(fecha);  

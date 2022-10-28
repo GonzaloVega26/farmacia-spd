@@ -4,7 +4,7 @@
  */
 package com.spd.farmacia.repositories;
 
-import com.spd.farmacia.entities.Cliente;
+import com.spd.farmacia.entities.MetodoPago;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author govhe
  */
 @Repository
-public interface IClienteRepository extends JpaRepository<Cliente, Integer>{
-    public Cliente findByDni(long dni); 
+public interface IMetodoPagoRepository extends JpaRepository<MetodoPago,Integer>{
+    
 }
