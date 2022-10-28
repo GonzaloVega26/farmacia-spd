@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Medicamentos</h1>
+    <input type="text" id="buscar-medicamento" />
+    <ul id="lista-medicamentos"></ul>
+
+    <script>
+      const inputMeds = document.getElementById("buscar-medicamento");
+      const listaMeds = document.getElementById("lista-medicamentos");
+
+      inputMeds.addEventListener("keyup", ({ key }) => {
+        if (key === "Enter") {
+          const nombreABuscar = inputMeds.value;
+          if(nombreABuscar){
+              fetch(
+                "http://localhost:8080/medicamento/get-medicamento/" + nombreABuscar
+              )
+                .then((response) => response.json())
+                .then((data) => {
+                  data.length != 0 ? fillList(data) : noCoincidenceMessage();
+                });
+            }
+            inputMeds.value=""; 
+          }
+      });
+
+      function fillList(medicamentos) {
+        let arrayLis = [];
+        medicamentos.forEach((element) => {
+          const listItem = document.createElement("li");
+          listItem.innerText = element.nombre;
+          arrayLis.push(listItem);
+        });
+        listaMeds.replaceChildren(...arrayLis); //Spread -Operator no se como funciona pero funciona
+      }
+
+      function noCoincidenceMessage() {
+        listaMeds.replaceChildren(...[])
+        const listItem = document.createElement("li");
+        listItem.innerText = "No se ha encontrado coincidencias";
+        listaMeds.appendChild(listItem);
+      }
+    </script>
+  </body>
+</html>

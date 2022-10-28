@@ -1,6 +1,7 @@
 let clientes=[];
 const lista = document.getElementById("lista-clientes")
 
+
 fetch('http://localhost:8080/cliente/get-all')
   .then((response) => response.json())
   .then((data) =>{
