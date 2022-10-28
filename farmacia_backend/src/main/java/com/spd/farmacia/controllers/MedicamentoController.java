@@ -7,11 +7,11 @@ package com.spd.farmacia.controllers;
 import com.spd.farmacia.dto.DtoMedicamento;
 import com.spd.farmacia.entities.Laboratorio;
 import com.spd.farmacia.entities.Medicamento;
+import com.spd.farmacia.pojos.ListaIdMedicamentos;
 import com.spd.farmacia.services.LaboratorioImp;
 import com.spd.farmacia.services.MedicamentoImp;
 import java.text.ParseException;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -77,4 +78,40 @@ public class MedicamentoController {
         return new ResponseEntity(medicamento, HttpStatus.OK);
 
     }
+    
+    @PutMapping("/update-medicamento/{id}")
+    public ResponseEntity<?> updateMedicamento(@RequestBody DtoMedicamento dtoMedicamento,@PathVariable("id") int idMedicamento ) throws ParseException {
+        //Creacion de Medicamento
+        Medicamento medicamento = medicamentoImp.findMedicamento(idMedicamento);
+        medicamento.setNombre(dtoMedicamento.getNombre());
+        medicamento.setLote(dtoMedicamento.getLote());
+        medicamento.setEsRecetado(dtoMedicamento.isEsRecetado());
+        medicamento.setFechaVenc(dtoMedicamento.fechaDeString(dtoMedicamento.getFechaVencimiento()));
+        medicamento.setStock(dtoMedicamento.getStock());
+        medicamento.setPrecioUnitario(dtoMedicamento.getPrecioUnitario());
+        
+        Laboratorio laboratorio  = laboratorioImp.findLaboratorio(dtoMedicamento.getIdLaboratorio());
+        
+        medicamento.setLaboratorio(laboratorio);
+        //Se actualiza laboratorio
+        laboratorio.getMedicamentos().add(medicamento);
+        laboratorioImp.saveLaboratorio(laboratorio);
+        
+        medicamentoImp.saveMedicamento(medicamento);
+        
+        return new ResponseEntity(medicamento, HttpStatus.OK);
+
+    }
+    @PostMapping("/comprar-medicamento")
+    public ResponseEntity<?> updateMedicamento(@RequestBody ListaIdMedicamentos listaIds) {
+        for (int id : listaIds.getArrayIds()) {
+            Medicamento medicamento = medicamentoImp.findMedicamento(id);
+            medicamento.setStock(medicamento.getStock()-1);
+            medicamentoImp.saveMedicamento(medicamento);
+        }
+        
+        return new ResponseEntity("Medicamentos Comprados Exitosamente", HttpStatus.OK);
+
+    }
+    
 }

@@ -5,6 +5,7 @@
 package com.spd.farmacia.entities;
 
 import com.sun.istack.NotNull;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class FacturaDetalle {
     private int id;
     @NotNull
     private double precioTotal;
-    
+    private Date fecha;
    
     @ManyToMany
     @JoinTable(name = "factdetalle_has_medicamentos",
@@ -39,6 +40,12 @@ public class FacturaDetalle {
     private List<Medicamento> medicamentos;
     
     @ManyToOne
+    @JoinColumn(name = "idMetodoPago")
     private MetodoPago metodoPago;
+    
+    @ManyToOne
+    @JoinColumn(name = "idFacturaEncabezado")
+    private FacturaEncabezado facturaEncabezado;
+
 
 }

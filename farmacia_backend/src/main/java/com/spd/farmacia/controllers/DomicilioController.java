@@ -58,8 +58,6 @@ public class DomicilioController {
         domicilio.setNumero(dtoDomicilio.getNumero());
         domicilio.setObservaciones(dtoDomicilio.getObservaciones());
 
-        //Se crea el domicilio primero con una lista vacia de clientes
-        domicilio.setClientes(new ArrayList<Cliente>());
         domicilioImp.saveDomicilio(domicilio);
 
         return new ResponseEntity(domicilio, HttpStatus.OK);

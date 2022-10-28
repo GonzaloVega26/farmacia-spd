@@ -4,18 +4,14 @@
  */
 package com.spd.farmacia.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.sun.istack.NotNull;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 /**
  *
@@ -24,20 +20,20 @@ import org.hibernate.annotations.CascadeType;
 @Getter
 @Setter
 @Entity
-public class Domicilio {
+public class FacturaEncabezado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotNull
-    private String provincia;
-    @NotNull
-    private String departamento;
-    @NotNull
-    private int cp;
-    @NotNull
-    private String calle;
-    @NotNull
-    private int numero;
-    private String observaciones;
     
+    @ManyToOne
+    @JoinColumn(name = "idRazonSocial")
+    private RazonSocial razonSocial;
+    
+    @ManyToOne
+    @JoinColumn(name = "idEmpleado")
+    private Empleado empleado;
+    
+    @ManyToOne
+    @JoinColumn(name = "idCliente")
+    private Cliente cliente;
 }

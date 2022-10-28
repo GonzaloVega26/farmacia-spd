@@ -51,6 +51,11 @@ public class ClienteController {
         return new ResponseEntity(lista, HttpStatus.OK);
     }
 
+    @GetMapping("/get-one-dni/{dni}")
+    public ResponseEntity<Cliente> getOneClienteByDni(@PathVariable("dni") int dniCliente) {
+        Cliente cliente = clienteImp.findClienteByDni(dniCliente);
+        return new ResponseEntity(cliente, HttpStatus.OK);
+    }
     @PostMapping("/create-cliente")
     public ResponseEntity<?> createCliente(@RequestBody DtoCliente dtoCliente) throws ParseException {
         //Creacion de Cliente
@@ -64,10 +69,7 @@ public class ClienteController {
         cliente.setTelefono(dtoCliente.getTelefono());
         //Busqueda de domicilio
         Domicilio domicilio = domicilioImp.findDomicilio(dtoCliente.getIdDomicilio());
-        domicilio.getClientes().add(cliente);
         //Guardado de nuevo cliente en el domicilio
-        domicilioImp.saveDomicilio(domicilio);
-        System.out.println(domicilio);
         cliente.setDomicilio(domicilio);
         clienteImp.saveCliente(cliente);
 
