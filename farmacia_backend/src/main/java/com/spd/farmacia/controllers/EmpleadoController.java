@@ -44,4 +44,10 @@ public class EmpleadoController {
         List<Empleado> lista = empleadoImp.findAllEmpleado();
         return new ResponseEntity(lista, HttpStatus.OK);
     }
+    
+    @GetMapping("/get-query/{idDomicilio}")
+    public ResponseEntity<Empleado> getEmpleadosByQuery(@PathVariable("idDomicilio") int idDomicilio) {
+        List<Empleado> lista = empleadoImp.findEmpleadosByDomicilio(idDomicilio);
+        return new ResponseEntity(lista, HttpStatus.OK);
+    }
 }

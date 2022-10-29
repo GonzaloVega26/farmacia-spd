@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,8 +29,8 @@ public class ObraSocial {
     private String mail;
     private long telefono;
     
-    @ManyToOne
-    private PlanObraSocial planObraSocial;
+    @OneToMany
+    private List<PlanObraSocial> planesObrasSociales;
     
     @ManyToMany
     private List<Domicilio> domicilios;

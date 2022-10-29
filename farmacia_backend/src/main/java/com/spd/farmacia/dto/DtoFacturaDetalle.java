@@ -25,8 +25,8 @@ public class DtoFacturaDetalle {
     private Integer idFacturaEncabezado;
     private String fecha;
     
-    public Date fechaDeString(String fecha) throws ParseException{
-        Date date= new SimpleDateFormat("dd/MM/yyyy").parse(fecha);  
+     public Date fechaDeString(String fecha) throws ParseException{
+        Date date= new SimpleDateFormat("yyyy-MM-dd").parse(fecha);  
         return date;
     }
 

@@ -41,4 +41,8 @@ public class EmpleadoImp {
     public Empleado findEmpleadoByDni(long dni){
         return iEmpleadoRepository.findByDni(dni);
     }
+    
+    public List<Empleado> findEmpleadosByDomicilio(int id){
+        return iEmpleadoRepository.listEmpleadosQuery(id);
+    }
 }
