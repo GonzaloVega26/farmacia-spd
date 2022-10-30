@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Equipo RR">
+	<meta name="description" content="FarmaDB Interface">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FarmaDB</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/farmadb-theme.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body>
+	<header>
+		<div class="header-container">
+			<div class="header-logotype">
+				<a href="index.html">FarmaDB</a>
+			</div>
+			<nav class="header-navigation">
+				<ul>
+					<li><a href="" class="active">Sistema</a></li>
+					<li><a href="">Reportes</a></li>
+					<li><a href="db.html">Base de Datos</a></li>
+					<li><a href="">Ayuda</a></li>
+				</ul>
+			</nav>
+			<div class="header-user">
+				<p>Buenos dias Carolina!</p>
+				<a href="">Salir</a>
+			</div>
+		</div>
+	</header>
+
+	<div class="header-space"></div>
+
+	<section>
+		<div class="section-container">
+			<div class="section-module">
+				<div class="section-title">
+					<h2>Modulo de Validación</h2>
+					<p>v0.0.0 (Alpha)</p>
+				</div>
+				<div class="section-content">
+					<form class="row g-3 needs-validation" novalidate>				
+						<div class="col-md-4">
+							<label for="clienteDNI" class="form-label">DNI</label>
+							<input class="form-control" type="text" id="clienteDNI"> <!-- disable readonly --> 
+						  </div>
+						<div class="col-md-4">
+						  	<label for="clienteNombre" class="form-label">Nombre</label>
+							<input class="form-control" type="text" id="clienteNombre"> <!-- disable readonly --> 
+						</div>
+						<div class="col-md-4">
+							<label for="clienteApellido" class="form-label">Apellido</label>
+						  <input class="form-control" type="text" id="clienteApellido"> <!-- disable readonly --> 
+					  </div>
+						<div class="col-md-4">
+							<label for="clienteFechaNac" class="form-label">Fecha de Nacimiento</label>
+						  	<input class="form-control" type="date" id="clienteFechaNac"> <!-- disable readonly -->
+					  	</div>
+						  <div class="col-md-4">
+							<label for="clienteMail" class="form-label">Mail</label>
+						  	<input class="form-control" type="email" id="clienteMail" required> <!-- disable readonly -->
+					  	</div>
+						  <div class="col-md-4">
+							<label for="clienteTel" class="form-label">Telefono</label>
+						  	<input class="form-control" type="text" id="clienteTel">
+					  	</div>
+						  <div class="col-md-4">
+							<label for="clienteOS" class="form-label">Obra Social</label>
+							<select class="form-select" id="clienteOS">
+								<option selected>Seleccionar</option>
+								<option value="1">Sancor Salud</option>
+								<option value="2">Medife</option>
+								<option value="1">OSDE</option>
+								<option value="1">Swiss Medical</option>
+							</select>
+					  	</div>
+						  <div class="col-md-4">
+							<label for="validationCustom02" class="form-label">Obra Social / Plan</label>
+							<select class="form-select">
+								<option selected>Seleccionar</option>
+								<option value="1">700A</option>
+								<option value="2">800V</option>
+								<option value="3">1000</option>
+								<option value="4">1500</option>
+								<option value="5">3000</option>
+								<option value="6">3500</option>
+								<option value="7">4000</option>
+								<option value="8">4500</option>
+								<option value="9">5000 Exclusive</option>
+							</select>
+					  	</div>
+						<div class="col-md-4">
+							<label for="validationCustom02" class="form-label">Obra Social / Vigencia</label>
+							<input class="form-control" type="text" value="VERIFICADO" aria-label="VERIFICADO" disabled readonly>
+					  	</div>
+						<div class="col-md-3">
+							<label for="clienteDireccion" class="form-label">Cliente / Direccion</label>
+							<input class="form-control" type="text" id="clienteDireccion"> <!-- disable readonly -->
+						</div>
+						<div class="col-md-3">
+							<label for="clienteDepto" class="form-label">Cliente / Departamento</label>
+							<select class="form-select" id="clienteDepto">
+								<option selected>Seleccionar</option>
+								<option value="1">Capital</option>
+								<option value="2">General Alvear</option>
+								<option value="3">General San Martin</option>
+								<option value="4">Godoy Cruz</option>
+								<option value="5">Guaymallen</option>
+								<option value="6">Junin</option>
+								<option value="7">La Paz</option>
+								<option value="8">Las Heras</option>
+								<option value="9">Lavalle</option>
+								<option value="10">Lujan de Cuyo</option>
+								<option value="11">Maipu</option>
+								<option value="12">Malargüe</option>
+							</select>
+						</div>
+						<div class="col-md-3">
+							<label for="clienteCP" class="form-label">Cliente / Codigo Postal</label>
+							<input class="form-control" type="text" id="clienteCP"> <!-- disable readonly -->
+						</div>
+						<div class="col-md-3">
+							<label for="validationCustom01" class="form-label">Cliente / Provincia</label>
+							<select class="form-select">
+								<option selected>Seleccionar</option>
+								<option value="1">Mendoza</option>
+								<option value="2">San Luis</option>
+								<option value="3">San Juan</option>
+							</select>
+						</div>
+						<br>
+						<br>
+						<div class="col-12">
+						  <button class="btn btn-primary" type="submit">Vender</button>
+						  <button class="btn btn-primary" type="submit">Devolucion</button>
+						  <button class="btn btn-outline-danger" type="reset">Borrar informacion</button>
+						  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							Guardar cliente
+						  </button>			
+						  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+							  <div class="modal-content">
+								<div class="modal-header">
+								  <h2 class="modal-title fs-5" id="exampleModalLabel">Error 216</h2>
+								  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+								  El cliente ya esta registrado en FarmaDB
+								</div>
+							  </div>
+							</div>
+						  </div>
+						  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+							Modificar cliente
+						  </button>			
+						  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+							  <div class="modal-content">
+								<div class="modal-header">
+								  <h2 class="modal-title fs-5" id="exampleModalLabel">Modificar cliente</h2>
+								  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+								  Submodulo en construcción
+								</div>
+								<div class="modal-footer">
+								  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+								  <button type="button" class="btn btn-primary">Guardar cliente</button>
+								</div>
+							  </div>
+							</div>
+						  </div>
+										
+						</div>
+					  </form>
+				</div>
+			</div>
+
+			<div class="section-module">
+				<div class="section-title">
+					<h2>Modulo de Novedades</h2>
+					<p>v0.0.0 (Alpha)</p>
+				</div>
+				<div class="section-content">
+					<div class="card" style="margin-bottom: 25px;">
+						<div class="card-body">
+							<h5 class="card-title">Actualización de Submodulo de Ventas</h5>
+						  	<h6 class="card-subtitle mb-2 text-muted">FarmaDB Mantenimiento</h6>
+						  	<p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora amet, dolores iste quasi voluptates animi qui aliquid repellat, impedit voluptas, quia ullam? Aspernatur at iste dolore voluptates, beatae numquam quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis voluptate vel esse minus molestiae autem facere itaque incidunt vitae, maiores perspiciatis impedit tempore voluptatum odit iste laborum saepe delectus? Facilis?</p>
+						  	<a href="#" class="card-link">Ver articulo</a>
+						</div>
+					</div>
+					<div class="card" style="margin-bottom: 25px;">
+						<div class="card-body">
+							<h5 class="card-title">Nuevo plan de Medifé "Platinum"</h5>
+						  	<h6 class="card-subtitle mb-2 text-muted">Obra Social</h6>
+						  	<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora molestiae maxime ab praesentium eum facilis asperiores, fugit officia, et exercitationem sint explicabo quasi ratione ipsa nostrum voluptates esse delectus fugiat. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora reprehenderit corrupti saepe nisi mollitia soluta blanditiis vitae officiis itaque deserunt ipsa vel accusamus, iusto sunt tenetur voluptas labore quasi delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero sapiente nesciunt quo maiores omnis incidunt ex voluptatem, natus minima unde exercitationem officia accusamus ullam est maxime. Officia esse exercitationem itaque.</p>
+						  	<a href="#" class="card-link">Ver articulo</a>
+						</div>
+					</div>
+					<div class="card" style="margin-bottom: 25px;">
+						<div class="card-body">
+							<h5 class="card-title">Descuentos para Jubilados</h5>
+						  	<h6 class="card-subtitle mb-2 text-muted">Ministerio de Salud</h6>
+						  	<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque iusto quos consequuntur iure, praesentium maiores quod enim voluptatibus dolor, vel sit repudiandae consequatur sequi, nihil dignissimos minima nam facere esse culpa quibusdam. Modi, recusandae. Explicabo ad laborum consectetur quas voluptatibus iste, optio repudiandae perferendis delectus. Pariatur distinctio cupiditate sunt doloribus provident delectus enim eos. Debitis, dolor, officia culpa quia magnam, dolorem sunt praesentium accusantium necessitatibus quae cupiditate sed esse minima deserunt? Perspiciatis totam ipsam sapiente repellat, nostrum recusandae nesciunt incidunt laboriosam odit! Ipsum facilis fuga blanditiis voluptas, autem numquam molestiae aliquam unde enim harum nihil velit reprehenderit quaerat eveniet quam, excepturi minus fugiat iusto debitis officiis dignissimos illum? Deserunt quod nesciunt ab repudiandae in assumenda! In corrupti doloremque quas enim, explicabo fugiat quibusdam, tenetur excepturi odit quam a recusandae placeat architecto necessitatibus consectetur illum, esse blanditiis illo totam iure debitis obcaecati. Odio facilis a iure explicabo fugiat deleniti dignissimos amet, eum placeat officiis necessitatibus sed rerum dolorem quo adipisci atque ex soluta maxime numquam vel non. Aperiam similique exercitationem libero voluptatem eveniet rerum, corporis laborum ratione, cum dolore voluptatum dicta consectetur. Dolore illum consequatur ullam rerum ab quidem sequi, accusantium, cumque suscipit, eligendi consectetur quia perspiciatis et animi blanditiis error?</p>
+						  	<a href="#" class="card-link">Ver articulo</a>
+							<a href="#" class="card-link">Ir a la Pagina Web</a>
+						</div>
+					</div>
+					<div class="card"">
+						<div class="card-body">
+							<h5 class="card-title">Nuevo Reporte de Submodulo de Ventas</h5>
+						  	<h6 class="card-subtitle mb-2 text-muted">FarmaDB Mantenimiento</h6>
+						  	<p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora amet, dolores iste quasi voluptates animi qui aliquid repellat, impedit voluptas, quia ullam? Aspernatur at iste dolore voluptates, beatae numquam quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis voluptate vel esse minus molestiae autem facere itaque incidunt vitae, maiores perspiciatis impedit tempore voluptatum odit iste laborum saepe delectus? Facilis?</p>
+						  	<a href="#" class="card-link">Ver articulo</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<script src="js/bootstrap.js"></script>
+</body>
+</html>
