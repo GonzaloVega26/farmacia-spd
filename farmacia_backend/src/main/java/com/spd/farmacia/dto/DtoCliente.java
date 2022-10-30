@@ -26,9 +26,10 @@ public class DtoCliente {
     private long telefono;
     
     private int idDomicilio;
+    private int idGenero;
     
     public Date fechaDeString(String fecha) throws ParseException{
-        Date date= new SimpleDateFormat("dd/MM/yyyy").parse(fecha);  
+        Date date= new SimpleDateFormat("yyyy-MM-dd").parse(fecha);  
         return date;
     }
 

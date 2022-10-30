@@ -41,14 +41,14 @@
 		<div class="section-container">
 			<div class="section-module">
 				<div class="section-title">
-					<h2>Modulo de Validación</h2>
+					<h2>Modulo de Cliente</h2>
 					<p>v0.0.0 (Alpha)</p>
 				</div>
 				<div class="section-content">
-					<form class="row g-3 needs-validation" novalidate>				
+					<form class="row g-3 needs-validation" onsubmit="return false" novalidate>				
 						<div class="col-md-4">
 							<label for="clienteDNI" class="form-label">DNI</label>
-							<input class="form-control" type="text" id="clienteDNI"> <!-- disable readonly --> 
+							<input class="form-control" type="number" id="clienteDNI"> <!-- disable readonly --> 
 						  </div>
 						<div class="col-md-4">
 						  	<label for="clienteNombre" class="form-label">Nombre</label>
@@ -74,25 +74,14 @@
 							<label for="clienteOS" class="form-label">Obra Social</label>
 							<select class="form-select" id="clienteOS">
 								<option selected>Seleccionar</option>
-								<option value="1">Sancor Salud</option>
-								<option value="2">Medife</option>
-								<option value="1">OSDE</option>
-								<option value="1">Swiss Medical</option>
+								
 							</select>
 					  	</div>
 						  <div class="col-md-4">
 							<label for="validationCustom02" class="form-label">Obra Social / Plan</label>
-							<select class="form-select">
+							<select class="form-select" id="planesOS">
 								<option selected>Seleccionar</option>
-								<option value="1">700A</option>
-								<option value="2">800V</option>
-								<option value="3">1000</option>
-								<option value="4">1500</option>
-								<option value="5">3000</option>
-								<option value="6">3500</option>
-								<option value="7">4000</option>
-								<option value="8">4500</option>
-								<option value="9">5000 Exclusive</option>
+								
 							</select>
 					  	</div>
 						<div class="col-md-4">
@@ -100,7 +89,7 @@
 							<input class="form-control" type="text" value="VERIFICADO" aria-label="VERIFICADO" disabled readonly>
 					  	</div>
 						<div class="col-md-3">
-							<label for="clienteDireccion" class="form-label">Cliente / Direccion</label>
+							<label for="clienteDireccion" class="form-label">Cliente / Calle y Numero</label>
 							<input class="form-control" type="text" id="clienteDireccion"> <!-- disable readonly -->
 						</div>
 						<div class="col-md-3">
@@ -127,7 +116,7 @@
 						</div>
 						<div class="col-md-3">
 							<label for="validationCustom01" class="form-label">Cliente / Provincia</label>
-							<select class="form-select">
+							<select class="form-select" id="clienteProvincia">
 								<option selected>Seleccionar</option>
 								<option value="1">Mendoza</option>
 								<option value="2">San Luis</option>
@@ -137,12 +126,12 @@
 						<br>
 						<br>
 						<div class="col-12">
-						  <button class="btn btn-primary" type="submit">Vender</button>
+						  <!-- <button class="btn btn-primary" type="submit">Vender</button> -->
 						  <button class="btn btn-outline-danger" type="reset">Borrar informacion</button>
-						  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+						   <button type="button" class="btn btn-outline-secondary" id="guardarCliente"> <!--  data-bs-toggle="modal" data-bs-target="#exampleModal" -->
 							Guardar cliente
 						  </button>			
-						  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered">
 							  <div class="modal-content">
 								<div class="modal-header">
@@ -157,7 +146,7 @@
 						  </div>
 						  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
 							Modificar cliente
-						  </button>			
+						  </button>			 -->
 						  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered">
 							  <div class="modal-content">
@@ -227,5 +216,6 @@
 
 
 	<script src="js/bootstrap.js"></script>
+	<script src="js/cliente.js"></script>
 </body>
 </html>
