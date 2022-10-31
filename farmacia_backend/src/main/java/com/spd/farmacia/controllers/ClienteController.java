@@ -7,8 +7,10 @@ package com.spd.farmacia.controllers;
 import com.spd.farmacia.dto.DtoCliente;
 import com.spd.farmacia.entities.Cliente;
 import com.spd.farmacia.entities.Domicilio;
+import com.spd.farmacia.entities.Genero;
 import com.spd.farmacia.services.ClienteImp;
 import com.spd.farmacia.services.DomicilioImp;
+import com.spd.farmacia.services.GeneroImp;
 import java.text.ParseException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,8 @@ public class ClienteController {
     ClienteImp clienteImp;
     @Autowired
     DomicilioImp domicilioImp;
+    @Autowired
+    GeneroImp generoImp;
 
     @GetMapping("/get-one/{id}")
     public ResponseEntity<Cliente> getOneCliente(@PathVariable("id") int idCliente) {
@@ -67,6 +71,8 @@ public class ClienteController {
         cliente.setFechaNacimiento(dtoCliente.fechaDeString(dtoCliente.getFechaNacimiento()));
         cliente.setMail(dtoCliente.getMail());
         cliente.setTelefono(dtoCliente.getTelefono());
+        
+        cliente.setGenero(generoImp.findGenero(dtoCliente.getIdGenero()));
         //Busqueda de domicilio
         Domicilio domicilio = domicilioImp.findDomicilio(dtoCliente.getIdDomicilio());
         //Guardado de nuevo cliente en el domicilio
